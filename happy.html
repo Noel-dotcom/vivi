@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open This When You're Happy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef4ff;
+      color: #333;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #2f5cff;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #6b82b8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    /* Spotify embed */
+    .spotify-section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #2f5cff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+
+    iframe.spotify {
+      border-radius: 12px;
+      width: 100%;
+      height: 352px;
+      border: none;
+    }
+
+    /* Letter */
+    .letter-section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .letter {
+      white-space: pre-wrap;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    .footer {
+      text-align: left;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #2f5cff, #1e40ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 12px rgba(47,92,255,0.4);
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .back-button:hover,
+    .back-button:focus {
+      background: linear-gradient(135deg, #1e40ff, #1530cc);
+      box-shadow: 0 8px 18px rgba(47,92,255,0.55);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .back-button:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Open This When You're Happy</h1>
+  <p class="subtitle">I made this just for a moment like this ✨</p>
+
+  <!-- Spotify Playlist -->
+  <div class="spotify-section">
+    <div class="section-label">🎵 A playlist for your happy days</div>
+
+    <iframe class="spotify"
+      src="https://open.spotify.com/embed/playlist/4PmK7VPcrpsN3JDzE9wmRX?utm_source=generator"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- Letter -->
+  <div class="letter-section">
+    <div class="section-label">💌 A letter for you</div>
+    <div class="letter">
+Fansuri,
+
+I'm very glad you're happy right now, your happiness is one of the things I treasure the most in this world, and just knowing you're smiling somewhere out there makes my heart feel so full. Whatever brought you joy today, I hope it stays with you for a long time, because you deserve every bit of it and so much more. Know that I love you just as deeply on your happiest days as I do on every other day in between. 
+
+Forever yours,
+Noel
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="home.html" class="back-button">← Back to Home</a>
+  </div>
+
+</body>
+</html>
+
+

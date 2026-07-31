@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love Coupons</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;900&display=swap" rel="stylesheet" />
+
+<style>
+
+body{
+margin:0;
+padding:2rem;
+background:#eef4ff;
+font-family:'Inter',sans-serif;
+}
+
+h1{
+text-align:center;
+font-family:'Great Vibes',cursive;
+font-size:2.5rem;
+color:#2f5cff;
+margin-bottom:2rem;
+}
+
+.coupon-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:2rem;
+}
+
+.coupon{
+display:flex;
+background:white;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+height:240px;
+border-radius:8px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+
+.coupon-main{
+flex:1;
+padding:1.5rem;
+display:flex;
+flex-direction:column;
+justify-content:center;
+text-align:center;
+font-size:1.6rem;
+font-weight:900;
+color:#333;
+}
+
+.fine-print{
+font-size:0.75rem;
+margin-top:0.5rem;
+color:#666;
+font-weight:300;
+}
+
+.tear-line{
+width:120px;
+position:relative;
+background-color:#2f5cff;
+display:flex;
+justify-content:center;
+align-items:center;
+background-image:
+repeating-linear-gradient(
+to bottom,
+transparent 0,
+transparent 12px,
+#eef4ff 12px,
+#eef4ff 18px,
+transparent 18px,
+transparent 30px
+);
+background-repeat:repeat-y;
+background-position:left center;
+background-size:6px 30px;
+}
+
+.tear-label{
+writing-mode:vertical-rl;
+transform:rotate(180deg);
+font-weight:700;
+font-size:1.6rem;
+color:#fff;
+text-align:center;
+padding:1rem 0;
+line-height:1.2;
+display:flex;
+flex-direction:column;
+justify-content:center;
+z-index:2;
+}
+
+.tear-label span:first-child,
+.tear-label span:last-child{
+font-size:1.6rem;
+letter-spacing:1px;
+font-weight:700;
+}
+
+.cutout{
+position:absolute;
+width:32px;
+height:32px;
+background:#eef4ff;
+border-radius:50%;
+left:-16px;
+z-index:2;
+}
+
+.cutout.top{ top:-16px; }
+.cutout.bottom{ bottom:-16px; }
+
+@media (max-width:768px){
+
+.coupon-grid{
+grid-template-columns:1fr;
+}
+
+.tear-line{
+width:90px;
+}
+
+.tear-label{
+font-size:1.3rem;
+}
+
+.tear-label span:first-child,
+.tear-label span:last-child{
+font-size:1.3rem;
+}
+
+}
+
+/* Redeemed coupon style */
+
+.coupon.redeemed{
+opacity:0.5;
+filter:grayscale(100%);
+pointer-events:none;
+}
+
+.coupon.redeemed::after{
+content:"REDEEMED";
+position:absolute;
+top:10px;
+left:10px;
+background:#2f5cff;
+color:white;
+font-size:0.8rem;
+padding:4px 8px;
+border-radius:4px;
+font-weight:700;
+}
+
+.back-button{
+display:inline-block;
+margin:2rem 0;
+padding:12px 24px;
+background:linear-gradient(135deg,#2f5cff,#1e40ff);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-family:'Inter',sans-serif;
+font-weight:700;
+font-size:1rem;
+box-shadow:0 6px 12px rgba(47,92,255,0.4);
+transition:0.3s;
+}
+
+.back-button:hover{
+transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Love Coupons</h1>
+
+<div class="coupon-grid">
+
+<div class="coupon">
+<div class="coupon-main">
+1 FREE PHOTO
+<div class="fine-print">Ill send you a photo of me.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+<div class="coupon">
+<div class="coupon-main">
+FALL ASLEEP WITH ME
+<div class="fine-print">Ill fall asleep on call with you.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+<div class="coupon">
+<div class="coupon-main">
+DARE ME TO DO ANYTHING
+<div class="fine-print">You can dare me to do one thing, no questions asked.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+<div class="coupon">
+<div class="coupon-main">
+ASK ME 1 QUESTION
+<div class="fine-print">You can ask me 1 question and Ill answer it honestly.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+<div class="coupon">
+<div class="coupon-main">
+LOVE LIST
+<div class="fine-print">Ill list 10 things that I love about you.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+<div class="coupon">
+<div class="coupon-main">
+VOICE MESSAGE
+<div class="fine-print">Ill record a short voice message for you.</div>
+</div>
+<div class="tear-line">
+<div class="cutout top"></div>
+<div class="tear-label">
+<span>ONE TIME</span>
+<span>USE</span>
+</div>
+<div class="cutout bottom"></div>
+</div>
+</div>
+
+</div>
+
+<a href="home.html" class="back-button">← Back to Home</a>
+
+<script>
+
+const coupons = document.querySelectorAll(".coupon");
+
+coupons.forEach((coupon,index)=>{
+
+if(localStorage.getItem("coupon-"+index)==="redeemed"){
+coupon.classList.add("redeemed");
+}
+
+coupon.addEventListener("click",()=>{
+
+if(coupon.classList.contains("redeemed")) return;
+
+const confirmRedeem = confirm("Redeem this coupon?");
+if(!confirmRedeem) return;
+
+coupon.classList.add("redeemed");
+
+localStorage.setItem("coupon-"+index,"redeemed");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

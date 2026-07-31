@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Love</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+position:relative;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background-color:#eaf6ff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:4rem;
+position:relative;
+overflow:hidden;
+}
+
+.hero-text{
+flex:1;
+position:relative;
+z-index:1;
+}
+
+.hero h1{
+font-size:1.3rem;
+font-weight:300;
+text-transform:uppercase;
+letter-spacing:1.5px;
+margin-bottom:1rem;
+}
+
+.hero h2{
+font-size:4rem;
+font-weight:900;
+text-transform:uppercase;
+color:#4aa9e9;
+margin-top:-0.5rem;
+text-shadow:0 4px 12px rgba(0,0,0,0.18);
+}
+
+.hero-image{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+z-index:1;
+}
+
+.hero-image img{
+width:460px;
+height:540px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* SECOND SECTION */
+
+.section-grid{
+display:flex;
+flex-wrap:wrap;
+height:100vh;
+width:100%;
+}
+
+.section-item{
+flex:1 1 25%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:1.4rem;
+font-weight:bold;
+text-align:center;
+padding:2rem;
+user-select:none;
+}
+
+.section-item span{
+font-size:1.4rem;
+font-weight:900;
+text-transform:uppercase;
+display:block;
+margin:1rem 0;
+}
+
+.section-img{
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:0.5rem;
+}
+
+.section-item:nth-child(1){background:#cfeeff;}
+.section-item:nth-child(2){background:#82CAFF;}
+.section-item:nth-child(3){background:#79BAEC;}
+.section-item:nth-child(4){background:#4e9ed8;}
+
+.inner-button{
+padding:10px 24px;
+font-size:0.75rem;
+font-weight:300;
+text-transform:uppercase;
+color:white;
+background:rgba(0,0,0,0.15);
+border:none;
+text-decoration:none;
+cursor:pointer;
+transition:background 0.3s;
+}
+
+.inner-button:hover{
+background:rgba(0,0,0,0.25);
+}
+
+/* OPEN THIS SECTION */
+
+.section-open-this{
+background:#cfe9ff;
+min-height:100vh;
+padding:4rem 2rem;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.open-this-title{
+font-size:2.5rem;
+font-weight:900;
+color:#3a9fe3;
+margin-bottom:2rem;
+text-align:center;
+text-shadow:0 3px 10px rgba(0,0,0,0.18);
+}
+
+.open-this-grid{
+display:flex;
+flex-wrap:wrap;
+gap:2rem;
+justify-content:center;
+}
+
+.open-this-item{
+background:#dff2ff;
+padding:1.5rem;
+border-radius:12px;
+text-align:center;
+width:220px;
+}
+
+.open-this-item img{
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:1rem;
+}
+
+.open-this-item span{
+display:block;
+margin-bottom:0.5rem;
+font-weight:700;
+font-size:1rem;
+}
+
+/* HEARTS */
+
+.heart-background{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+
+.heart{
+position:absolute;
+width:32px;
+height:32px;
+background:#82CAFF;
+transform:rotate(45deg);
+animation:fall linear infinite;
+opacity:0.7;
+}
+
+.heart::before,
+.heart::after{
+content:"";
+position:absolute;
+width:32px;
+height:32px;
+background:#82CAFF;
+border-radius:50%;
+}
+
+.heart::before{
+top:-16px;
+left:0;
+}
+
+.heart::after{
+left:-16px;
+top:0;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(45deg);}
+100%{transform:translateY(110vh) rotate(45deg);}
+}
+
+.secret-link{
+text-decoration:none;
+color:inherit;
+}
+
+/* MOBILE FIX */
+
+@media (max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:2rem;
+height:auto;
+}
+
+.hero-image{
+margin-top:2rem;
+}
+
+.hero-image img{
+width:90%;
+max-width:320px;
+height:auto;
+}
+
+.hero h2{
+font-size:2.4rem;
+}
+
+.hero h1{
+font-size:1rem;
+}
+
+.section-grid{
+height:auto;
+}
+
+.section-item{
+flex:1 1 50%;
+}
+
+}
+
+@media (max-width:480px){
+
+.section-item{
+flex:1 1 100%;
+}
+
+.open-this-item{
+width:90%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="heart-background" id="heart-background"></div>
+
+<div class="hero-text">
+<h1>HELLO <a href="secret.html" class="secret-link">BABY</a>,</h1>
+<h2>WELCOME TO YOUR WEBSITE! &lt;3</h2>
+</div>
+
+<div class="hero-image">
+<img src="fansurimain.jpg">
+</div>
+
+</section>
+
+
+<section class="section-grid">
+
+<div class="section-item">
+<img src="coupons.png" class="section-img">
+<span>LOVE COUPONS</span>
+<a href="coupons.html" class="inner-button">C L A I M  I T</a>
+</div>
+
+<div class="section-item">
+<img src="calendar.png" class="section-img">
+<span>LOVE LETTERS</span>
+<a href="letters.html" class="inner-button">R E A D  T H E M</a>
+</div>
+
+<div class="section-item">
+<img src="letter.png" class="section-img">
+<span>MAIN LETTER</span>
+<a href="main-letter.html" class="inner-button">R E A D  I T</a>
+</div>
+
+<div class="section-item">
+<img src="headphones.png" class="section-img">
+<span>DEDICATED SONG</span>
+<a href="song.html" class="inner-button">L I S T E N  T O  I T</a>
+</div>
+
+</section>
+
+
+<section class="section-open-this">
+
+<div class="open-this-title">
+Open this when you...
+</div>
+
+<div class="open-this-grid">
+
+<div class="open-this-item">
+<img src="bobsad.JPG">
+<span>Feel Sad</span>
+<a href="sad.html" class="inner-button">O P E N  T H I S</a>
+</div>
+
+<div class="open-this-item">
+<img src="bobhappy.JPG">
+<span>Feel Happy</span>
+<a href="happy.html" class="inner-button">O P E N  T H I S</a>
+</div>
+
+<div class="open-this-item">
+<img src="bobclingy.JPG">
+<span>Miss Me</span>
+<a href="miss.html" class="inner-button">O P E N  T H I S</a>
+</div>
+
+<div class="open-this-item">
+<img src="bobangry.JPG">
+<span>Get Angry</span>
+<a href="angry.html" class="inner-button">O P E N  T H I S</a>
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+const heartContainer=document.getElementById("heart-background");
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+heartContainer.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Small Love Letters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef4ff;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #2f5cff;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #6b82b8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1rem;
+      max-width: 1400px;
+      margin: 0 auto 2rem;
+    }
+
+    .letter-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 1.1rem 1.2rem 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .letter-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(47,92,255,0.13);
+    }
+
+    .day-label {
+      font-size: 0.63rem;
+      font-weight: 700;
+      color: #2f5cff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+    }
+
+    .letter-text {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .footer {
+      text-align: left;
+      padding: 1rem 0 2rem;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #2f5cff, #1e40ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 12px rgba(47,92,255,0.4);
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .back-button:hover {
+      background: linear-gradient(135deg, #1e40ff, #1530cc);
+      box-shadow: 0 8px 18px rgba(47,92,255,0.55);
+      transform: scale(1.05);
+    }
+
+    .back-button:active { transform: scale(0.96); }
+
+    @media (max-width: 600px) {
+      .letters-grid { grid-template-columns: 1fr 1fr; }
+      .letter-text { font-size: 0.8rem; }
+    }
+    @media (max-width: 380px) {
+      .letters-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Small Love Letters</h1>
+<p class="subtitle">One for every day of the year &nbsp;·&nbsp; 365 letters</p>
+
+<div class="letters-grid" id="grid"></div>
+
+<div class="footer">
+  <a href="home.html" class="back-button">← Back to Home</a>
+</div>
+
+<script>
+const letters = [
+  "I love the way you light up my life — your smile is my sunshine.",
+  "Your worry shows how deeply you care, and it means the world.",
+  "You're the calm in my chaos and the warmth in my world.",
+  "Thank you for always taking care of me, even from afar.",
+  "Just thinking of you makes my day better. I love you endlessly.",
+  "Your kindness brightens my darkest days.",
+  "I feel your care in every message you send me.",
+  "Your worry and love make me want to be better.",
+  "Just a reminder: you're my favorite person, no matter the distance.",
+  "You make me smile in ways no one else can.",
+  "I'm grateful for how you always look out for me.",
+  "Your care is the closest thing I have to a hug right now.",
+  "Even miles apart, your love takes care of me.",
+  "Your worry shows how much you love me — it's beautiful.",
+  "You make me feel special and loved every single day.",
+  "I cherish how you care about my well-being so much.",
+  "Your love is a warm light in my distance.",
+  "I smile because of you, even when times get tough.",
+  "Your care makes me feel closer to you, no matter the miles.",
+  "Thank you for loving me so deeply and thoughtfully.",
+  "It's your worry and care that make me feel so loved.",
+  "Your love is the reason I keep going every day.",
+  "I treasure every moment you make me smile from afar.",
+  "You always know how to brighten my day with your care.",
+  "Your thoughtful heart is like a soft blanket around my heart.",
+  "I'm lucky to have someone who worries and cares like you.",
+  "Your love feels like home, even when we're apart.",
+  "Thank you for being my constant source of happiness.",
+  "Because of you, even distance feels less lonely.",
+  "Your care is felt deeply, even through the screen.",
+  "I smile more because you worry about me.",
+  "You take care of me in ways words can't describe.",
+  "Even in our arguments, your love shines through.",
+  "You're my sunshine on the cloudiest days.",
+  "Your worry shows just how much you love me.",
+  "You make the distance worth every second.",
+  "I love how you always think about my well-being.",
+  "Your care gives me strength I didn't know I had.",
+  "You make me smile even when I'm feeling down.",
+  "Thank you for being my rock, even from afar.",
+  "It's your love and worry that keep me going.",
+  "Distance means nothing when your care reaches me daily.",
+  "Your thoughtful heart is my greatest treasure.",
+  "You worry about me, and that's the most beautiful thing.",
+  "You make me feel loved in every message you send.",
+  "Thanks for always taking care of my heart.",
+  "You are my favorite reason to smile every day.",
+  "Your love feels close, even when you're far away.",
+  "I'm grateful for your care more than words can say.",
+  "You make me feel safe, loved, and deeply cared for.",
+  "I love the way your smile reaches me through the distance.",
+  "Distance is just a number when love is this strong.",
+  "You're always on my mind and in my heart.",
+  "I can't wait until we don't have to be apart anymore.",
+  "Your love and care make even hard days easier.",
+  "Distance feels less lonely when I hear your voice.",
+  "Our love is stronger than any miles between us.",
+  "You make my heart beat faster even when you're far away.",
+  "Thank you for being the light in my long-distance world.",
+  "Every message from you feels like a hug from miles away.",
+  "Your love and care keep me grounded when I miss you.",
+  "We may argue, but my love for you only grows stronger.",
+  "Even when we fight, I never stop caring about you.",
+  "Your smile is the best part of my day, every day.",
+  "You're the most beautiful part of my life, inside and out.",
+  "I love you for all your thoughtful, caring ways.",
+  "Our distance is hard, but your love makes it bearable.",
+  "Thank you for worrying about me — it shows how much you love.",
+  "When I'm down, your care lifts me up like nothing else.",
+  "You're the reason I look forward to each new day.",
+  "Even apart, you make me feel loved and cared for.",
+  "Our arguments don't change the way I feel about you.",
+  "With you, even silence feels full of love.",
+  "Your care is a treasure I hold close every day.",
+  "I'm counting down the days until I can hold you close.",
+  "Your worry shows just how much you love me, and I love you for it.",
+  "You're always in my thoughts, no matter the distance.",
+  "Thank you for being my support, even from miles away.",
+  "Distance can't dull the love I feel for you.",
+  "Your thoughtful words mean more than you know.",
+  "You make me smile, even on the toughest days.",
+  "Every day with you, even apart, is a blessing.",
+  "I'm grateful for your love, care, and even our struggles.",
+  "You're my favorite notification on my phone.",
+  "Your love feels like a warm hug through the screen.",
+  "I love how you care so much — it makes me feel safe.",
+  "We might be far, but our hearts are always close.",
+  "Thank you for being patient with me, even when we argue.",
+  "I'm proud of us for keeping love alive across the miles.",
+  "Your care is like a cozy blanket that wraps me up at night.",
+  "Our love story is one of distance, care, and endless smiles.",
+  "I love you more every day, no matter the miles.",
+  "Even though we argue, you're the one I want in my life.",
+  "Your smile brightens my day from anywhere.",
+  "You're beautiful inside and out, and I'm lucky to have you.",
+  "Your love is my favorite thing about this distance.",
+  "Thank you for being thoughtful and caring — always.",
+  "You make me feel loved, cared for, and special every day.",
+  "Distance can't stop the way you make me feel.",
+  "I'm thankful for every message that shows your care.",
+  "You worry about me, and that means everything.",
+  "I can feel your love through every word you say.",
+  "You're my sunshine when days feel dark and lonely.",
+  "Our love is strong, even when miles keep us apart.",
+  "Your care makes me feel like I'm not alone.",
+  "I love you, through every smile, worry, and moment we share.",
+  "Thank you for being the most thoughtful person in my life.",
+  "Even when we argue, your love shines through clearly.",
+  "Your care is the best gift I could ask for.",
+  "You're the prettiest part of my world, near or far.",
+  "I'm grateful for how much you worry and care for me.",
+  "Our distance won't stop me from loving you endlessly.",
+  "Your smile, your care, your love — I cherish it all.",
+  "I'm lucky to have someone so thoughtful and caring.",
+  "You're everything nice in my life, and more.",
+  "Thank you for being my light, even when we're apart.",
+  "I love the way you make me smile, no matter the distance.",
+  "Your worry is proof of your amazing heart.",
+  "Even though we haven't met in person yet, you're my favorite person.",
+  "Thank you for being you — beautiful, thoughtful, and loving.",
+  "Distance is tough, but your love makes it easier every day.",
+  "Every message from you feels like a warm embrace.",
+  "You make me feel cared for, even miles away.",
+  "Our arguments don't change how much I love you.",
+  "Your smile is my favorite thing to think about.",
+  "Thank you for always worrying about me — it means the world.",
+  "You're so pretty, inside and out, and I'm lucky to know you.",
+  "I love how thoughtful you are, even from far away.",
+  "You're everything nice wrapped into one amazing person.",
+  "Even when we fight, I never stop wanting the best for you.",
+  "Your care makes my heart feel full every day.",
+  "Thank you for being my favorite reason to smile.",
+  "I love how your worry shows your deep love for me.",
+  "We may be apart, but you're always close in my heart.",
+  "Thinking of you makes even the hardest days better.",
+  "Your love and care are my greatest comfort.",
+  "You make me want to be a better person, every day.",
+  "Even from miles away, you're my biggest blessing.",
+  "I'm thankful for your love, your care, and your beautiful heart.",
+  "Distance is tough, but our love is tougher.",
+  "Your smile lights up my heart like nothing else.",
+  "Thank you for taking care of me, even from far away.",
+  "I love you for all the thoughtful ways you show you care.",
+  "You're the prettiest, kindest, most caring person I know.",
+  "Our arguments don't erase the love I have for you.",
+  "You make me smile every day, even when we're apart.",
+  "Thank you for always worrying about me — it means everything.",
+  "Your love makes the distance feel smaller and smaller.",
+  "Even though we haven't met, I feel lucky to have you.",
+  "You're everything I could ask for, and more.",
+  "I love the way you care, even from miles away.",
+  "Your thoughtful heart is my favorite thing about you.",
+  "Thank you for being my constant, even when things get hard.",
+  "Distance won't stop me from loving you with all my heart.",
+  "I'm grateful for your care, your worry, and your love.",
+  "You're beautiful, thoughtful, and the love of my life.",
+  "Your love is the light that guides me through hard times.",
+  "I love how you always think about my well-being.",
+  "You make the distance feel less lonely every day.",
+  "Thank you for being the most caring person I know.",
+  "I'm lucky to have you in my life, no matter the miles.",
+  "Distance means nothing when love is this strong.",
+  "Your worry shows just how much you love me — and I love you for it.",
+  "You make my heart smile every day.",
+  "Thank you for loving me through every up and down.",
+  "You're the prettiest part of my life, inside and out.",
+  "I cherish every moment you make me smile from afar.",
+  "I'm counting down the days until we can be together.",
+  "Thank you for always worrying about me — it shows your love.",
+  "Even when we argue, my love for you only grows.",
+  "You're the kindest, most thoughtful person I know.",
+  "I'm thankful for your love, care, and even our struggles.",
+  "Distance can't stop the way you make me feel loved.",
+  "I love you more every day, no matter the miles.",
+  "I love the way you care so much — it makes me feel safe.",
+  "You make me smile in ways no one else can.",
+  "Your thoughtful heart is my greatest treasure.",
+  "I smile because of you, even when times get tough.",
+  "You're always in my thoughts, no matter the distance.",
+  "Your love feels like home, even when we're apart.",
+  "You make me feel special and loved every single day.",
+  "Your care is felt deeply, even through the screen.",
+  "Even when we fight, I never stop caring about you.",
+  "You make the distance worth every second.",
+  "Your worry shows how much you love me — it's beautiful.",
+  "You're my favorite person, no matter the miles.",
+  "Thank you for loving me so deeply and thoughtfully.",
+  "Your love is the reason I keep going every day.",
+  "I treasure every moment you make me smile from afar.",
+  "Your care makes me feel closer to you every day.",
+  "You're everything nice in my life, and more.",
+  "Your smile lights up my heart like nothing else.",
+  "You're beautiful inside and out, and I'm lucky to know you.",
+  "I love the way you make me smile, no matter the distance.",
+  "Your care gives me strength I didn't know I had.",
+  "You're the prettiest part of my world, near or far.",
+  "Our arguments don't erase the love I have for you.",
+  "Your love makes the distance feel smaller every single day.",
+  "I love the way you care, even from miles away.",
+  "Your thoughtful heart is my favorite thing about you.",
+  "Distance won't stop me from loving you with all my heart.",
+  "Your smile is the best part of my day, every day.",
+  "I'm grateful for your care, your worry, and your love.",
+  "Even miles away, you make me feel loved and cared for.",
+  "Your love is the light that guides me through hard times.",
+  "You make the distance feel less lonely every day.",
+  "I'm lucky to have you in my life, no matter the miles.",
+  "Your care is the closest thing I have to a hug right now.",
+  "You're always on my mind and in my heart.",
+  "You make my heart smile every day.",
+  "Thank you for loving me through every up and down.",
+  "Our love is stronger than any miles between us.",
+  "Your care is a treasure I hold close every day.",
+  "You're my sunshine when days feel dark and lonely.",
+  "Your love and care keep me grounded when I miss you.",
+  "Your smile brightens my day from anywhere.",
+  "I love you more every day, no matter the miles.",
+  "Your care makes my heart feel full every day.",
+  "Thank you for being my favorite reason to smile.",
+  "Even apart, you make me feel loved and cared for.",
+  "Thank you for always taking care of me, even from afar.",
+  "Distance is just a number when love is this strong.",
+  "You're always in my thoughts, no matter the distance.",
+  "I'm grateful for how much you worry and care for me.",
+  "Thank you for being the most thoughtful person in my life.",
+  "You're the reason my heart feels lighter on heavy days.",
+  "Even on the days we don't talk, I still feel your love.",
+  "You remind me that the best things in life are worth waiting for.",
+  "I love that your heart is as big as your smile.",
+  "Your patience with me is a gift I don't take lightly.",
+  "You make ordinary days feel extraordinary.",
+  "I love you more today than I did yesterday.",
+  "You're my safe place in a world that can feel overwhelming.",
+  "Everything is better because you're a part of it.",
+  "I love the way you love me — fully and without condition.",
+  "You make me feel understood in ways I never expected.",
+  "The sound of your voice is my favorite sound in the world.",
+  "I'm better because you're in my life.",
+  "You're worth every mile between us.",
+  "I love how you make me laugh even on my worst days.",
+  "Your heart is gentle and kind, and I adore it.",
+  "You're the person I want to tell everything to.",
+  "I love that you choose me, every single day.",
+  "Even our quiet moments feel full of meaning.",
+  "You're the thought that makes me smile without reason.",
+  "I love the little things you do — they mean everything.",
+  "You make distance feel like a small inconvenience.",
+  "Your love is the most beautiful thing in my life.",
+  "I look forward to our future more than you know.",
+  "You're the kind of love I used to dream about.",
+  "Being loved by you is the greatest gift.",
+  "I can't imagine doing this life without you.",
+  "You're my favorite chapter in my favorite story.",
+  "Your love is consistent, and that steadiness means the world.",
+  "Even miles can't dim the light you bring to my life.",
+  "I love you — not just today, but always.",
+  "You're my person, through every distance and every day.",
+  "Your love is something I will never take for granted.",
+  "Thank you for making this distance feel like a love story.",
+  "I'm always rooting for you, no matter how far we are.",
+  "You're home to me, wherever you are.",
+  "I love you a little more with every passing day.",
+  "Your warmth reaches me even through a screen.",
+  "You are, without a doubt, my favorite human.",
+  "I fall for you a little more every time we talk.",
+  "You make the hardest days feel survivable.",
+  "I'm proud of the love we've built across the miles.",
+  "You're more than I ever hoped for.",
+  "I love the version of me that exists because of you.",
+  "Your care is quiet and deep — and I notice every bit of it.",
+  "Thank you for showing up for me, even from a distance.",
+  "You are exactly who I want to come home to.",
+  "I love you not just for who you are, but for who you make me.",
+  "You're the reason I believe in love across any distance.",
+  "I carry your love with me everywhere I go.",
+  "You matter more to me than words can ever capture.",
+  "Thank you for loving me the way I've always needed.",
+  "You're the kind of person the world needs more of.",
+  "I love that you're mine and I'm yours.",
+  "Being loved by you feels like the luckiest thing.",
+  "You're worth every sacrifice this distance asks of us.",
+  "I love you completely, endlessly, and without reservation.",
+  "You are my favorite hello and my hardest goodbye.",
+  "Every day closer is a day I look forward to.",
+  "You make love feel easy, even when distance makes it hard.",
+  "I would choose you in every lifetime.",
+  "You're my reason for everything good in my days.",
+  "The wait will be worth it — because you are worth it.",
+  "Your love is the most constant thing in my life.",
+  "I love you a little more every time you make me laugh.",
+  "You've made me believe in something real and lasting.",
+  "I think about our future and it makes me so happy.",
+  "You're the kind of rare that I never want to let go of.",
+  "I love you today, tomorrow, and every day in between.",
+  "You are the best part of my story.",
+  "Thank you for being patient, kind, and endlessly loving.",
+  "I fall asleep thinking of you and wake up smiling.",
+  "You are my greatest adventure and my greatest comfort.",
+  "I love you more with every mile and every moment.",
+  "You're the one I want to build everything with.",
+  "Your love is the foundation I stand on every day.",
+  "I'm yours, completely and joyfully.",
+  "Thank you for being the person I get to love.",
+  "You make forever feel like something beautiful.",
+  "I love you — day 1 or day 365, that never changes.",
+  "You're the first person I want to talk to about everything.",
+  "Your love feels like the safest place I've ever known.",
+  "I love that we can be honest with each other, always.",
+  "You make even the most mundane moments feel magical.",
+  "I love the way you say my name.",
+  "Your presence, even virtual, fills up every room.",
+  "I think about all the things we'll do when we're finally together.",
+  "You're the most genuine person I've ever had the joy of knowing.",
+  "I love the way your eyes light up when you talk about things you love.",
+  "You make me feel like I'm exactly where I'm supposed to be.",
+  "Your laughter is one of my favorite sounds in the whole world.",
+  "I love that you trust me, and I promise to always deserve it.",
+  "Every love song makes more sense because of you.",
+  "You're the person I want beside me for every adventure.",
+  "I love how deeply you feel things — it's one of your greatest gifts.",
+  "You make even bad days turn into something I can get through.",
+  "I love the way you look when you're thinking.",
+  "You're patient, and that patience has meant so much to me.",
+  "I love you for all the times you held on when it was hard.",
+  "You are the most comforting presence in my life.",
+  "I love the future we're building, one day at a time.",
+  "You give me so much to look forward to.",
+  "Your love has changed me for the better.",
+  "I love that you're proud of me, even on my smallest days.",
+  "You make me feel worthy of all the good things.",
+  "I love how we always find our way back to each other.",
+  "You are one of the most beautiful souls I've ever encountered.",
+  "I love you through the ordinary and the extraordinary.",
+  "Your voice alone makes everything feel okay.",
+  "I love the life we're slowly building together.",
+  "You've taught me so much about what real love looks like.",
+  "I love you for loving me when I found it hard to love myself.",
+  "You're the reason I'm a better person today.",
+  "I love the way you make me feel seen.",
+  "Every version of you is someone I love.",
+  "I love how you always know what to say.",
+  "You're the one I want to call first with good news.",
+  "I love that our love keeps growing, even across the miles.",
+  "You are, and always will be, more than enough.",
+  "I love how much you care — it radiates out of you.",
+  "You make the world feel like a kinder, softer place.",
+  "I love you the way the ocean loves the shore — endlessly.",
+  "You're the best thing that's ever happened to me.",
+  "I love how every day with you feels like a gift.",
+  "You've made this distance into something meaningful.",
+  "I love that you never give up on us.",
+  "You're the stillness in my storm and the joy in my calm.",
+  "I love you with a love that grows every single day.",
+  "You are the answer to every question I didn't know I had.",
+  "I love how lucky I feel just to know you.",
+  "Your love is woven into every part of my day.",
+  "I love you for every moment — including the ones yet to come.",
+  "You're my favorite person to miss, because you're worth missing.",
+  "I love that no matter how hard things get, we face them together.",
+  "You're the dream I get to live every day.",
+  "I love you more than any letter, any word, any page could say.",
+  "You are my forever and my right now.",
+  "I love you — endlessly, completely, and with my whole heart.",
+  "Thank you for being the greatest love story I've ever known.",
+  "I love you, now and for every day of every year to come."
+];
+
+const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+const grid = document.getElementById('grid');
+let dayNum = 0;
+
+for (let m = 0; m < 12; m++) {
+  for (let d = 1; d <= daysInMonth[m]; d++) {
+    const card = document.createElement('div');
+    card.className = 'letter-card';
+
+    const label = document.createElement('div');
+    label.className = 'day-label';
+    label.textContent = `Day ${dayNum + 1} · ${monthNames[m]} ${d}`;
+
+    const text = document.createElement('div');
+    text.className = 'letter-text';
+    text.textContent = letters[dayNum] || '';
+
+    card.appendChild(label);
+    card.appendChild(text);
+    grid.appendChild(card);
+    dayNum++;
+  }
+}
+</script>
+
+</body>
+</html>
